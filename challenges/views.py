@@ -18,7 +18,11 @@ monthly_challenges_dict = {
 
 def monthly_challenges_dr(request, month):
     months = list(monthly_challenges_dict.keys())
-    redirect_month = months[month]
+    
+    if month> len(months):
+        return HttpResponseNotFound('invalid month')
+    
+    redirect_month = months[month -1]
     return HttpResponseRedirect("/challenges/"+ redirect_month)
     
 
