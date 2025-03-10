@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect
+from django.urls import reverse
 
 monthly_challenges_dict = {
     "january":"Be vegeterial for a month",
@@ -21,9 +22,10 @@ def monthly_challenges_dr(request, month):
     
     if month> len(months):
         return HttpResponseNotFound('invalid month')
-    
+       
     redirect_month = months[month -1]
-    return HttpResponseRedirect("/challenges/"+ redirect_month)
+    redirect_path = reverse('month_challenge', args=[redirect_month]) #challenge/january
+    return HttpResponseRedirect(redirect_path)
     
 
 def monthly_challenges(request, month):
