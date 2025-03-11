@@ -14,7 +14,7 @@ monthly_challenges_dict = {
     "august":"learn django for 20 minutes everyday",
     "september":"do excercises for 1 hour everyday",
     "november":"Be vegetarian for a month",
-    "december":"do excercises for 1 hour everyday"
+    "december":None
 }
 # Create your views here.
 
